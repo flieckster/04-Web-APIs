@@ -1,30 +1,68 @@
 let highscore = document.getElementById("#highscore");
+let multipleChoiceButtons = document.getElementById("#multipleChoiceButtons");
+let askQuestionsDisplay = document.getElementById("#questions");
+let CountDownTimer = document.getElementById("#timer");
+let instructions = document.getElementById("#instructions");
+let startButton = document.getElementById("#start");
 let buttonA = document.getElementById("#a");
+let buttonB = document.getElementById("#b");
+let buttonC = document.getElementById("#c");
+var secondsLeft = 90;
+// var score = '';
+var currentQuestion = 0;
 
 
+startButton.addEventListener("click", startQuiz);
 
-var questions = [ 
-    {
-        question: "what is an array used for?\n (a) store multiple values in a single variable\n (b) store images in a single variable\n(c) a guy named ray",
-        answer: "a"
-    },
-    {
-        question: "What is bootstrap?\n (a) dockmartin laces\n (b) CSS Framework for developing responsive and mobile-first websites\n (c) css wizardary",
-        answer: "b"
-    }
-];
-var score = '';
-function askingQuestions () {
-for(var i=0; i<questions.length; i++){
-    var responce = window.prompt(questions[i].prompt);
-    if(responce == questions[i].answer){
-        score++;
-        alert ("Correct");
-    }else{
-        alert("wrong");
-    }
-}
-}
+function startQuiz () {
+setTime();
 askingQuestions();
-highscore.innerHTML = "500";
-buttonA.innerHTML = "what is a button?";
+};
+
+
+
+function setTime() {
+    // Sets interval in variable
+    // hide the instructions portion of quiz
+    instructions.style.visibility = "hidden";
+
+    var timerInterval = setInterval(function() {
+      secondsLeft--;
+      CountDownTimer.textContent = "time remaining: " + secondsLeft;
+  
+      if(currentQuestion === questionsToAsk.length) {
+        clearInterval(timerInterval);
+      }else{
+
+      }
+  
+    }, 1000);
+  }
+
+  function askingQuestions () {
+    if (currentQuestion === questionsToAsk.length){
+        // askQuestionsDisplay.style.visibility = "hidden";
+
+    }
+askQuestionsDisplay.textContent = questionsToAsk[currentQuestion].question;
+buttonA.textContent = questionsToAsk[currentQuestion].multipleChoice[0];
+buttonB.textContent = questionsToAsk[currentQuestion].multipleChoice[1];
+buttonC.textContent = questionsToAsk[currentQuestion].multipleChoice[2];
+
+};
+
+multipleChoiceButtons.addEventListener("click", function (event) {
+    if (event.target.matches("button")) {
+        if (event.target.textContent === questionsToAsk[currentQuestion].answer) {
+            currentQuestion++;
+
+        } else {
+            currentQuestion++;
+            secondsLeft = secondsLeft - 10;
+
+        }
+        askingQuestions();
+    }
+});
+
+
