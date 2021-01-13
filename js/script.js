@@ -1,4 +1,7 @@
 let highscore = document.getElementById("#highscore");
+let buttonA = document.getElementById("#a");
+
+
 
 var questions = [ 
     {
@@ -10,10 +13,10 @@ var questions = [
         answer: "b"
     }
 ];
-var score = 0;
-function askingQuestions (){
-for(var i=0; i<question.length; i++){
-    var responce = window.prompt(qeustions[i].prompt);
+var score = '';
+function askingQuestions () {
+for(var i=0; i<questions.length; i++){
+    var responce = window.prompt(questions[i].prompt);
     if(responce == questions[i].answer){
         score++;
         alert ("Correct");
@@ -23,5 +26,5 @@ for(var i=0; i<question.length; i++){
 }
 }
 askingQuestions();
-highscore.innerHTML = score;
-
+highscore.innerHTML = "500";
+buttonA.innerHTML = "what is a button?";
