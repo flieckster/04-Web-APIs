@@ -10,14 +10,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <!-- top nav bar for score and time -->
     <nav class="navbar" style="background-color: #33546b;">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color:white" id="#highscore">View Highscores</a>
-            <a class="navbar-brand" style="color:white" id="#timer">Time:</a>
+            <li class="navbar-brand" id="#highscore">View Highscores: 0</li>
+            <li class="navbar-brand" id="#timer">Time: 0</li>
         </div>
     </nav>
     <!-- question and buttons -->
@@ -29,22 +30,21 @@
                 questions within the time
                 limit. Keep in mind that incorrect answers will penilize your scoretime by 10 seconds! press the start
                 button below to begin. </span>
-            <button type="button" class="btn text-white" style="background-color:#33546b" id="#start">Start</button>
+            <button type="button" class="btn text-white mx-1" id="#start">Start</button>
+
         </div>
 
-        <div class="row pt-1 pb-5 top-0 start-0" id="#questions">Place Holder for question</div>
+        <div class="row pt-1 pb-5 top-0 start-0" id="#questions">
+        </div>
         <div class="col col-xs-1" id="#multipleChoiceButtons">
-            <button type="button" class="btn btn-block text-white" style="background-color:#33546b"
-                id="#a">A</button><br>
-            <button type="button" class="btn btn-block text-white" style="background-color:#33546b"
-                id="#b">B</button><br>
-            <button type="button" class="btn btn-block text-white" style="background-color:#33546b" id="#c">C</button>
+            <button type="button" class="btn btn-block text-white" id="#a">A</button><br>
+            <button type="button" class="btn btn-block text-white" id="#b">B</button><br>
+            <button type="button" class="btn btn-block text-white" id="#c">C</button>
         </div>
         <!-- add your intials to high score leader board -->
-        <section class="container" style="visibility: hidden;">
+        <section class="container">
             <form>
-                <div class="form-group initialsSection">
-                    <h2 id="endQuizGreeting"></h2>
+                <div class="form-group initialsSection" id="endQuizGreeting">
                     <label for="formGroupExampleInput">Enter your initials below to add your personal high
                         score.</label>
                     <input type="text" class="form-control" id="initialsInput" placeholder="Enter Initials Here.">
@@ -52,6 +52,13 @@
                     <button type="button" class="btn text-white" style="background-color:#33546b">Submit</button>
                 </div>
             </form>
+        </section>
+        <section class="container" id="UserHighScoreArchive">
+
+                    <span id="userName">BCF</span><br>
+                    <span id="userNameScore">10</span>
+
+        
         </section>
     </div>
     <!-- Optional JavaScript -->
