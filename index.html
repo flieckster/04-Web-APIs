@@ -41,25 +41,36 @@
             <button type="button" class="btn btn-block text-white" id="#b">B</button><br>
             <button type="button" class="btn btn-block text-white" id="#c">C</button>
             <span id="correctorWrong"></span><br>
+            <span id="questionsleft"></span><br>
         </div>
         <div class="row pt-1 pb-5 top-0 start-0">
-            <span id="userfeedback"><h1></h1></span>
+            <span id="userfeedback"></span>
         </div>
         <!-- add your intials to high score leader board -->
         <section class="container">
             <form>
                 <div class="form-group initialsSection" id="endQuizGreeting">
-                    <label for="formGroupExampleInput">Enter your initials below to add your personal high
-                        score.</label>
+                    <label for="formGroupExampleInput">Enter your initials below to add your personal highscore.</label>
                     <input type="text" class="form-control" id="initialsInput" placeholder="Enter Initials Here.">
                     <br>
-                    <button type="button" class="btn text-white" style="background-color:#33546b">Submit</button>
+                    <button type="button" class="btn text-white" id="submitBtn">Submit</button>
                 </div>
             </form>
         </section>
+        <!-- high score archive -->
         <section class="container" id="UserHighScoreArchive">
-                    <span id="userName">BCF</span><br>
-                    <span id="userNameScore">10</span>
+            <div class="row">
+                <div class="col-sm border">
+                    Initials:
+                </div>
+                <div class="col-sm border">
+                    Time:
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm border" id="userName"></div>
+                <div class="col-sm border" id="userNameScore"></div>
+            </div>
         </section>
     </div>
     <!-- Optional JavaScript -->

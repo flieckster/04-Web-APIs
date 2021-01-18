@@ -10,20 +10,29 @@ let buttonA = document.getElementById("#a");
 let buttonB = document.getElementById("#b");
 let buttonC = document.getElementById("#c");
 
-let highScoresArchive = document.getElementById("UserHighScoreArchive");
-let username = document.getElementById("userName");
-let userNameScore = document.getElementById("userNameScore");
+
 
 let correctorwrong = document.getElementById("correctorWrong");
 let userfeedback = document.getElementById("userfeedback");
+let questionsleft = document.getElementById("questionsleft");
+
+
+let highScoresArchive = document.getElementById("UserHighScoreArchive");
+let username = document.getElementById("userName");
+let userNameScore = document.getElementById("userNameScore");
+let submitButton = document.getElementById("submitBtn");
 
 var secondsLeft = 90;
 let score = 0;
-//using this later for display of the 
 var highscoreUser = localStorage.getItem("score");
+//using this later for display of the 
+
 var currentQuestion = 0;
+
+
 //make question area larger text!
 askQuestionsDisplay.style.fontSize = "30px";
+userfeedback.style.fontSize = "30px";
 endGame.style.display = "none";
 highScoresArchive.style.display = "none";
 
@@ -35,24 +44,6 @@ function startQuiz() {
   askingQuestions();
 };
 
-
-
-// function setTime() {
-//   // Sets interval in variable
-//   // hide the instructions portion of quiz
-//   instructions.style.display = "none";
-
-//   var timerInterval = setInterval(function () {
-//     secondsLeft--;
-//     CountDownTimer.textContent = "time remaining: " + secondsLeft;
-
-//     if (secondsLeft <= 0) {
-//       clearInterval(timerInterval);
-
-//     }
-
-//   }, 1000);
-// }
 
 function setTime() {
   instructions.style.display = "none";
@@ -66,6 +57,7 @@ function setTime() {
           var usersTime = secondsLeft;
           correctorWrong.style.display = "none";
           userfeedback.textContent = "You completed the quiz with " + secondsLeft + " seconds left!";
+
           endOfGame();
       }
 
@@ -118,20 +110,35 @@ highscore.addEventListener("click", function (event) {
   if (endQuizGreeting.style.display === "none") {
     endQuizGreeting.style.display = "block";
     UserHighScoreArchive.style.display = "block";
-      // storePlayerInfo();
+      storePlayerInfo();
   } else {
     endQuizGreeting.style.display = "none";
     UserHighScoreArchive.style.display = "none";
 
   }
 })
-//keep score secton
-// function scoreKeeper() {
-//   if (score > 0) {
 
-//     // localStorage.setItem("highscore", score);
-//   }
-// }
+submitButton.addEventListener("click", function (event) {
+
+  event.preventDefault();
+  let finalScoresDisplayed = [];
+  var usersTime = secondsLeft;
+  var usersInitials = initialsInput.value;
+ 
+
+  // users score and intitials added here via JSON stringify.
+
+  finalScoresDisplayed.push("Initials", usersInitials);
+  finalScoresDisplayed.push("Time", usersTime);
+  localStorage.setItem("final score", JSON.stringify(finalScoresDisplayed));
+
+
+})
+
+function storePlayerInfo() {
+  finalScoresDisplayed = JSON.parse(localStorage.getItem("final score"));
+
+}
 
   function endOfGame() {
     askQuestionsDisplay.style.display = "none";
