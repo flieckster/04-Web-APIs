@@ -14,6 +14,9 @@ let highScoresArchive = document.getElementById("UserHighScoreArchive");
 let username = document.getElementById("userName");
 let userNameScore = document.getElementById("userNameScore");
 
+let correctorwrong = document.getElementById("correctorWrong");
+let userfeedback = document.getElementById("userfeedback");
+
 var secondsLeft = 90;
 let score = 0;
 //using this later for display of the 
@@ -34,23 +37,49 @@ function startQuiz() {
 
 
 
+// function setTime() {
+//   // Sets interval in variable
+//   // hide the instructions portion of quiz
+//   instructions.style.display = "none";
+
+//   var timerInterval = setInterval(function () {
+//     secondsLeft--;
+//     CountDownTimer.textContent = "time remaining: " + secondsLeft;
+
+//     if (secondsLeft <= 0) {
+//       clearInterval(timerInterval);
+
+//     }
+
+//   }, 1000);
+// }
+
 function setTime() {
-  // Sets interval in variable
-  // hide the instructions portion of quiz
   instructions.style.display = "none";
 
   var timerInterval = setInterval(function () {
     secondsLeft--;
-    CountDownTimer.textContent = "time remaining: " + secondsLeft;
+      CountDownTimer.textContent = "time remaining: " + secondsLeft;
 
-    if (secondsLeft <= 0) {
-      clearInterval(timerInterval);
+      if ((currentQuestion === questionsToAsk.length)) {
+          clearInterval(timerInterval);
+          var usersTime = secondsLeft;
+          correctorWrong.style.display = "none";
+          userfeedback.textContent = "You completed the quiz with " + secondsLeft + " seconds left!";
+          endOfGame();
+      }
 
-    }
-
+      if (secondsLeft <= 0) {
+          clearInterval(timerInterval);
+          correctorWrong.style.display = "none";
+          userfeedback.textContent = "You completed the quiz with " + secondsLeft + " seconds left!";
+          endOfGame();
+      }
   }, 1000);
 }
 
+
+//question asking 
 function askingQuestions() {
   if (currentQuestion === questionsToAsk.length) {
 
@@ -63,9 +92,6 @@ function askingQuestions() {
 
 };
 
-
-
-
 //multiple choice section
 multipleChoiceButtons.addEventListener("click", function (event) {
   if (event.target.matches("button")) {
@@ -74,12 +100,12 @@ multipleChoiceButtons.addEventListener("click", function (event) {
       score++;
       highscore.textContent = "View Highscores: " + score;
       console.log(score);
-
+      correctorWrong.textContent = "correct!";
 
     } else {
       currentQuestion++;
       secondsLeft = secondsLeft - 10;
-
+      correctorWrong.textContent = "wrong!";
     }
     askingQuestions();
   
@@ -87,7 +113,7 @@ multipleChoiceButtons.addEventListener("click", function (event) {
   }
 });
 
-
+//make high score section a clickable section
 highscore.addEventListener("click", function (event) {
   if (endQuizGreeting.style.display === "none") {
     endQuizGreeting.style.display = "block";
@@ -108,6 +134,8 @@ highscore.addEventListener("click", function (event) {
 // }
 
   function endOfGame() {
+    askQuestionsDisplay.style.display = "none";
+    multipleChoiceButtons.style.display = "none";
     endQuizGreeting.style.display = "block";
     UserHighScoreArchive.style.display = "block";
 

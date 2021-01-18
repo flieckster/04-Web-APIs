@@ -20,34 +20,34 @@ var questionsToAsk = [
     answer: "Document Object Method"
   },
   {
-    question: "question 5 ",
-    multipleChoice: ["-2", "5", "-3"],
-    answer: "5"
+    question: "Select the option to make a list that lists the items with numbers?",
+    multipleChoice: ["<ui>", "<oi>", "<di>"],
+    answer: "<oi>"
   },
   {
-    question: "question 6 ",
-    multipleChoice: ["-2", "6", "-3"],
-    answer: "6"
+    question: "what HTML tag is used to make the largest heading?",
+    multipleChoice: ["<h1>", "<head>", "<h6>"],
+    answer: "<h1>"
   },
   {
-    question: "question 7 ",
-    multipleChoice: ["-2", "7", "-3"],
-    answer: "7"
+    question: "which is correct syntax to create a link to email? ",
+    multipleChoice: ["a href=mailto:xxx@yyy.com", "Mail>xxx@yyy.com/mail", "A href=xxx@yyy.com"],
+    answer: "a href=mailto:xxx@yyy.com"
   },
   {
-    question: "question 8 ",
-    multipleChoice: ["-2", "8", "-3"],
-    answer: "8"
+    question: "In CSS,select the property used to set the background color of an image?",
+    multipleChoice: ["background:color", "color:background", "background-color"],
+    answer: "background-color"
   },
   {
-    question: "question 9 ",
-    multipleChoice: ["-2", "9", "-3"],
-    answer: "9"
+    question: "Select the appropriate HTML tag for inserting a line break?",
+    multipleChoice: ["<break>", "<br>", ".break"],
+    answer: "<br>"
   },
   {
-    question: "question 10 ",
-    multipleChoice: ["-2", "10", "-3"],
-    answer: "10"
+    question: "Which character entity would you use to display extra spaces on a webpage?",
+    multipleChoice: ["& lt;", "& reg;", "& nbsp;"],
+    answer: "& nbsp;"
   }
 ];
 
