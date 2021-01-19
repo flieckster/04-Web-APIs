@@ -29,6 +29,11 @@ var highscoreUser = localStorage.getItem("score");
 
 var currentQuestion = 0;
 
+function setColor() {
+  const correct = "green";
+	const wrong = "red";
+  correctorWrong.style.setProperty('color', correct);
+}
 
 //make question area larger text!
 askQuestionsDisplay.style.fontSize = "30px";
@@ -36,6 +41,7 @@ userfeedback.style.fontSize = "30px";
 endGame.style.display = "none";
 highScoresArchive.style.display = "none";
 multipleChoiceButtons.style.display = "none";
+endQuizGreeting.style.display = "none";
 
 startButton.addEventListener("click", startQuiz);
 
@@ -94,12 +100,16 @@ multipleChoiceButtons.addEventListener("click", function (event) {
       score++;
       highscore.textContent = "View Highscores: " + score;
       console.log(score);
+      const correct =  correctorWrong.style.setProperty('color', 'green');
       correctorWrong.textContent = "correct!";
+      correct;
 
     } else {
       currentQuestion++;
       secondsLeft = secondsLeft - 10;
+      const wrong =  correctorWrong.style.setProperty('color', 'red');
       correctorWrong.textContent = "wrong!";
+      wrong;
     }
     askingQuestions();
   
