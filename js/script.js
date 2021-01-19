@@ -35,6 +35,7 @@ askQuestionsDisplay.style.fontSize = "30px";
 userfeedback.style.fontSize = "30px";
 endGame.style.display = "none";
 highScoresArchive.style.display = "none";
+multipleChoiceButtons.style.display = "none";
 
 startButton.addEventListener("click", startQuiz);
 
@@ -42,6 +43,7 @@ startButton.addEventListener("click", startQuiz);
 function startQuiz() {
   setTime();
   askingQuestions();
+  multipleChoiceButtons.style.display = "block";
 };
 
 
@@ -126,18 +128,23 @@ submitButton.addEventListener("click", function (event) {
   var usersInitials = initialsInput.value;
  
 
-  // users score and intitials added here via JSON stringify.
 
-  finalScoresDisplayed.push("Initials", usersInitials);
-  finalScoresDisplayed.push("Time", usersTime);
-  localStorage.setItem("final score", JSON.stringify(finalScoresDisplayed));
+  finalScoresDisplayed.push({"user": usersInitials, "time": usersTime});
+  // finalScoresDisplayed.push(usersTime);
+  localStorage.setItem("score", JSON.stringify(finalScoresDisplayed));
+  storePlayerInfo();
+  endOfGame();
 
 
 })
 
 function storePlayerInfo() {
-  finalScoresDisplayed = JSON.parse(localStorage.getItem("final score"));
-
+  const finalScoresDisplayed = localStorage.getItem("score");
+  personName = JSON.parse({"score":user});
+  personNametime = JSON.parse({"score":time});
+console.log(JSON.parse({"score":time}));
+ username.innerHTML = personName.user;
+ userNameScore.innerHTML = personNametime.time;
 }
 
   function endOfGame() {
