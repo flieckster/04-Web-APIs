@@ -13,5 +13,5 @@ NOT WORKING****
 
 
 
-(https://user-images.githubusercontent.com/9003865/105272496-77869580-5b67-11eb-867a-9e5c7e066eea.png)
-(https://user-images.githubusercontent.com/9003865/105272601-af8dd880-5b67-11eb-93f3-4f786ce1e79e.png)
+![image](https://user-images.githubusercontent.com/9003865/105272496-77869580-5b67-11eb-867a-9e5c7e066eea.png)
+![image](https://user-images.githubusercontent.com/9003865/105272601-af8dd880-5b67-11eb-93f3-4f786ce1e79e.png)
