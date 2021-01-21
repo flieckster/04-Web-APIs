@@ -9,7 +9,7 @@
 * input by the user is shown to save user intials into localstorage
 
 NOT WORKING****
-* display of high score of the user is not done yet, JSON  
+* display of high score of the user is not done yet, JSON parse and retriavel of the local storage is still incopmlete.
 
 
 
